@@ -1,7 +1,9 @@
 import streamlit as st 
-
+import time 
 import numpy as np 
 import pandas as pd 
+
+#Use magic 
 
 """
  #My first app
@@ -39,6 +41,8 @@ if st.checkbox('Show dataframe'):
       columns=['a', 'b','c'])
 chart_data
 
+#Use a selectbox for options 
+
 option = st.sidebar.selectbox(
   'Which number do you like best?',
   df['first column'])
@@ -53,3 +57,16 @@ expander = st.beta_expander("FAQ")
 expander.write("Here you could put in some really, really long explanations...")
 
 #Mostrar progresso
+'Starting a long computation ...'
+
+#Add a placeholder 
+latest_iteration = st.empty()
+bar = st.progress(0)
+
+for i in range(100):
+  #Update the progress bar with each iteration 
+  latest_iteration.text(f'Iteration{i+1}')
+  bar.progress(i+1)
+  time.sleep(0.1)
+
+  '...and now we\'re done!'

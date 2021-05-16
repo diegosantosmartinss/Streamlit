@@ -1,8 +1,9 @@
+from collections import namedtuple
 import streamlit as st 
 import time 
+import altair as alt
 import numpy as np 
 import pandas as pd 
-
 #Use magic 
 
 """
